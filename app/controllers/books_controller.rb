@@ -8,6 +8,13 @@ class BooksController < ApplicationController
     render json: @books
   end
 
+  def update_read
+    @book = Book.find(params[:id])
+    @book.read = params[:read]
+    @book.save
+    render json: @book
+  end
+
   # GET /books/1
   def show
     render json: @book
